@@ -1,0 +1,13 @@
+<app-list>
+  <ng-template #entityTemplate let-entity="entity">
+    <div>{{entity.id}}: {{entity.title}}</div>
+  </ng-template>
+</app-list>
+
+<br>
+
+<button (click)="setFilter()">Set filter</button>
+
+<pre>{{filter$ | async | json}}</pre>
+
+

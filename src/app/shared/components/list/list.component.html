@@ -1,0 +1,16 @@
+<ng-container *ngIf="!(loading$ | async); else loader;">
+
+  <pre>Active: {{active$ | async | json}}</pre>
+
+  <br>
+
+  <ng-container *ngFor="let entity of list$ | async">
+    <div class="row" (click)="active = entity.id">
+      <ng-container [ngTemplateOutlet]="entityTemplate"
+                    [ngTemplateOutletContext]="{entity: entity}">
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #loader>Loading...</ng-template>
